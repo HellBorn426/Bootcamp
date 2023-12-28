@@ -1,0 +1,53 @@
+
+					  Template-Solution Design Document
+
+
+	1.	Solution - Given solution here is in a step by step manner.
+	
+		step 1:- Dataset Creation
+			 . Upload the given sample data on AWS S3 in a folder named "input-data".
+	
+		step 2:- Data Cleaning
+			 . Perform data cleaning for the following datasets: 'Patients', 'Subscriber', 'Claims', 'Group_subgroup'.
+			 . Check for null values in the dataset.
+			 . Count the total null values for each column.
+			 . Replace null values for specific columns by 'NA'.
+			 . Check for duplicate records, and if found, drop duplicates.
+	
+		step 3:- Upload Cleaned Data to Redshift
+			 . Upload cleaned data corresponding to each dataset into a Redshift table.
+			 . Create a schema design document for target tables.
+	
+		step 4:- Result on Redshift
+			 . Create a separate Redshift table for each use case output in a Redshift schema named 'Project-Output'.
+			
+	2.	Use Cases – 
+		1) Which disease has a maximum number of claims.
+		2) Find those Subscribers having age less than 30 and they subscribe any subgroup
+		3) Find out which group has maximum subgroups.
+		4) Find out hospital which serve most number of patients
+		5) Find out which subgroups subscribe most number of times
+		6) Find out total number of claims which were rejected
+		7) From where most claims are coming (city)
+		8) Which groups of policies subscriber subscribe mostly Government or private
+		9) Average monthly premium subscriber pay to insurance company.
+		10)Find out Which group is most profitable
+		11)List all the patients below age of 18 who admit for cancer
+		12)List patients who have cashless insurance and have total charges greater than or equal for Rs. 50,000.
+		13)List female patients over the age of 40 that have undergone knee surgery in the past year
+		
+	3.	Database Design - 
+		    a.	Tables Metadata Info with Pk/FK relationship - 
+			. Patients table with PatientID as PK.
+			. Subscriber table with SubscriberID as PK, linked to Patients.
+			. Claims table with ClaimID as PK, linked to Subscriber.
+			. Group_subgroup table with GroupID as PK.
+	
+	
+	4.	Technologies and Platforms to be used in this solution -
+			. AWS S3 for data storage.
+			. AWS Redshift for the data warehouse.
+			. Databricks for data processing using PySpark.
+			. AWS EMR Studio for development and testing.
+			. GitHub for version control.
+			. Jira for project management.
